@@ -1,3 +1,4 @@
+/* USE THIS FILE FOR STYLING COMPONENTS! */
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -13,6 +14,27 @@ code {
 }
 
 .map-container {
-  height: 500px; /* Set this to your desired height */
+  
+  height: 90vh; /* Set this to your desired height */
   width: 100%;   /* Width can be 100% or a fixed value */
+  margin: 0 auto;
+
+}
+
+.ui-container {
+  color:white;
+
+}
+
+.info-container {
+  color: white;
+}
+
+.header {
+  color: #7BAFD4;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.p-intro {
+  color:white;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
