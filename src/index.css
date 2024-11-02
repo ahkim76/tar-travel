@@ -14,10 +14,10 @@ code {
 }
 
 .map-container {
-  
-  height: 90vh; /* Set this to your desired height */
-  width: 100%;   /* Width can be 100% or a fixed value */
-  margin: 0 auto;
+  flex: 1;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
 
 }
 
@@ -32,9 +32,29 @@ code {
 
 .header {
   color: #7BAFD4;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background-color: #13294B;
+  text-align: center;
+  padding: 2.4rem;
+  width: 100%;
+  box-sizing: border-box;
 }
+
+.all-text {
+  flex: 1;
+  background-color: #f0f0f0;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
 .p-intro {
-  color:white;
+  color:black;
+  font-size: 2rem;
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin: 0;
 }
