@@ -3,7 +3,17 @@
   padding: 0;
   box-sizing: border-box;
 }
+/* 
 
+  blue: "#4B9CD3",
+          navy: "#13294B",
+          tarheelblue: "#7BAFD4"
+  apurwa1: "#AFECFF",
+          apurwa2: "#70C3FF",
+          apurwa3: "#C1E8F4",
+          apurwa4: "#C0E8FF",
+          apurwa5: "#44D2FF"
+          */
 html {
   font-size: 62.5%;
 }
@@ -12,6 +22,7 @@ body {
   overscroll-behavior-y: none;
   line-height: 1.6;
   height: 100vh;
+  background: linear-gradient(135deg, #C0E8FF, #AFECFF);
 }
 
 .App {
@@ -20,19 +31,20 @@ body {
 
 .main {
   display: flex;
-  height: 100vh;
+  height: 80vh;
   overflow: hidden;
   padding: 20px;
 }
 
 .wrapper {
-  max-width: 1300px;
-  height: 100vh;
+  background: white;
+  max-width: 1200px;
+  height: 90vh;
   margin: 20px auto;
   padding: 20px;
   border-radius: 10px;
   border: 2px solid #ddd;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
   overflow: hidden;
 }
 
@@ -47,8 +59,8 @@ body {
   padding: 3rem 5rem;
   display: flex;
   flex-direction: column;
-  background-color: #f0f0f0;
-  height: 100%;
+  background-color: #999;
+  height: 110%;
   overflow-y: auto;
 }
 

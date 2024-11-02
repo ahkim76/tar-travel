@@ -15,8 +15,8 @@ code {
 
 .map-container {
   
-  height: 94.5vh; /* Set this to your desired height */
-  width: 87.5%;   /* Width can be 100% or a fixed value */
+  height: 90vh; /* Set this to your desired height */
+  width: 100%;   /* Width can be 100% or a fixed value */
   margin: 0 auto;
 
 }
