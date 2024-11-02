@@ -2,13 +2,15 @@ import '../index.css'
 function UserInterface() {
     return (
         <>
-        <div>
-            User Interface
-        </div>
         <h1 className='header'>
-            
-            UNC 
+            UNC-Chapel Hill<br></br>Study Abroad Opportunities
         </h1>
+        <p className="p-intro">
+            unc unc unc unc unc
+            whatsup unc
+
+
+        </p>
 
         </>
     )
