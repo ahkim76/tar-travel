@@ -1,14 +1,19 @@
+from selenium import webdriver
 from bs4 import BeautifulSoup
-import requests
+import time
 
-url = 'https://heelsabroad.unc.edu/_portal/tds-program-brochure?programid=1253'
+driver = webdriver.Chrome()
 
-page = requests.get(url)
+url = "https://heelsabroad.unc.edu/_portal/tds-program-brochure?programid=10169"
+driver.get(url)
 
-soup = BeautifulSoup(page.text, 'html')
+time.sleep(30)
 
-soup.find('program_id')
-print(soup)
+soup = BeautifulSoup(driver.page_source, 'html.parser')
+print(soup.prettify())
 
-valid_ids = []
+f = open("test.txt", "a")
+f.write(soup.prettify())
+f.close()
 
+driver.quit()
