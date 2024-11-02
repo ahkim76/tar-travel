@@ -59,8 +59,18 @@ body {
   padding: 3rem 5rem;
   display: flex;
   flex-direction: column;
-  background-color: #999;
-  height: 110%;
+  background-color: #13294B;
+  height: 50%;
+  overflow-y: auto;
+}
+
+.info-container {
+  flex-basis: 50rem;
+  padding: 3rem 5rem;
+  display: flex;
+  flex-direction: column;
+  background-color: lightgray;
+  height: 50%;
   overflow-y: auto;
 }
 
