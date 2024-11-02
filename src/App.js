@@ -1,11 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
 import MainMap from './Components/MainMap.jsx'
+import UserInterface from './Components/UserInterface.jsx';
 function App() {
   return (
     <div className="main">
       <div className="ui-container">
-        <p>User Interface...</p>
+        <UserInterface />
       </div>
 
       <div className="map-container">
