@@ -49,6 +49,7 @@ def create_txt_files():
                         continue
                     else:
                         info.append(t)
+                        found = True
         f.close()
         unis.append(University(id, name, info[1], info[0]))
         driver.quit()
