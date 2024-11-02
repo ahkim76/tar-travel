@@ -1,14 +1,16 @@
 import '../index.css'
-function PinInfo() {
+function PinInfo({ universityName, description, details }) {
     return (
         
         <div className="all-text">
-            <p className="p-intro">
-                unc unc unc unc unc
-                whatssup uncccccc
+            <h2 className="p-header">
+                {universityName}
+            </h2>
+            <p className="p-description">
+                {description}
             </p>
-            <p>
-                p diddy
+            <p className="p-details">
+                {details}
             </p>
         </div>
         

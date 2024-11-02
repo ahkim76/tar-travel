@@ -6,7 +6,9 @@ function UserInterface() {
         <h1 className='header'>
             UNC-Chapel Hill<br></br>Study Abroad Opportunities
         </h1>
-        <PinInfo />
+        <PinInfo universityName={"Brenton Universty"} 
+        description={"P Diddy Land"} 
+        details={"HELLO!! tstststs"} />
         </>
     )
 }

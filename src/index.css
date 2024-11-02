@@ -52,9 +52,20 @@ code {
   padding: 1rem;
 }
 
-.p-intro {
+.p-header {
+  color: black;
+  font-size: 4rem;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.p-description {
   color:black;
   font-size: 2rem;
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   margin: 0;
+}
+
+.p-details {
+  color: black;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
