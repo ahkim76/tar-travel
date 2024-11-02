@@ -13,13 +13,16 @@ L.Icon.Default.mergeOptions({
   shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
 });
 
+function getPopup(lat, long) {
+
+}
 
 function MainMap() {
     return (
         <div>
             <MapContainer 
             className="map-container" 
-            center={[51.505, -0.09]} 
+            center={[37.5664, 126.9387]} 
             zoom={13} 
             scrollWheelZoom={true}
             style={{ height: "100vh", width: "100%" }}>
@@ -28,7 +31,7 @@ function MainMap() {
                 url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/rastertiles/voyager/{z}/{x}/{y}{r}.png"
                 attribution='&copy; <a href="https://carto.com/attributions">CARTO</a>'
             />
-            <Marker position={[51.505, -0.09]}>
+            <Marker position={[37.5664, 126.9387]}>
                 <Popup>
                 A pretty CSS3 popup. <br /> Easily customizable.
                 </Popup>
