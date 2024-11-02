@@ -24,9 +24,12 @@ code {
 .ui-container {
   color:white;
 
-
-
 }
+
+.info-container {
+  color: white;
+}
+
 .header {
   color: #7BAFD4;
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
