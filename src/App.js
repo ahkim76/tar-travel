@@ -4,16 +4,16 @@ import MainMap from './Components/MainMap.jsx'
 import UserInterface from './Components/UserInterface.jsx';
 function App() {
   return (
-    <div className="main">
-      <div className="ui-container">
-        <UserInterface />
+    <div className="wrapper">
+      <div className="main">
+        <div className="ui-container">
+          <UserInterface />
+        </div>
+        <div className="map-container">
+          <MainMap />
+        </div>
       </div>
-
-      <div className="map-container">
-        <MainMap />
       </div>
-     
-    </div>
   );
 }
 
