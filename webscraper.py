@@ -1,5 +1,7 @@
 from selenium import webdriver
 from bs4 import BeautifulSoup
+import random
+import math
 import time
 import numpy as np
 import pandas as pd
@@ -104,7 +106,7 @@ def get_university_objects(ids):
 
                     coordinates = getCoords(city, country, i)
 
-                    if len(text) > 1:
+                    if len(text) > 1 and coordinates != [0, 0]:
                         location = Location(city, country, text[1], coordinates)
                     else:
                         badfile.write(str(i))
@@ -185,18 +187,24 @@ def getCoords(city, country, i):
         # raise MultipleCitiesException()
         return [0, 0]
 
+    latitude = float(df["lat"].item())
+    longitude = float(df["lng"].item())
 
-    return [float(df["lat"].item()), float(df["lng"].item())]
+    rand_angle = random.random() * 2 * math.pi
+    distance = 0.01 - random.random() * 0.005
+    latitude += math.sin(rand_angle) * distance
+    longitude += math.cos(rand_angle) * distance
 
+    return [latitude, longitude]
 
 
 
 file = open("exchangejson.txt", "a")
 badfile = open("exchangebadids.txt", "a")
 
-exchange_ids = [12534, 12033, 11855, 10676, 10328, 10303, 10310, 10312, 10255, 10257, 10244, 10223, 10172, 10171, 10167, 10326, 10329, 10319, 10193, 10189, 10187, 10256, 10000, 11742, 10678, 12403, 11779, 10333, 10339, 10339, 10324, 10265, 10242, 10245, 10248, 10249, 10232, 10237, 10226, 10214, 10221, 10204, 10205, 10175, 10169, 10337, 11751, 10327, 10164, 10309, 10336, 10186, 12446, 10236, 10331, 10301, 10301, 10307, 10345, 10227, 10683, 10335, 10341, 10342, 10325, 10313, 10315, 10318, 10262, 10264, 10247, 10239, 10222, 10181, 10163, 10321, 10275, 10338, 10190, 10191, 10192, 10188, 10323, 11863, 12315, 10173, 10207]
+# exchange_ids = [12534, 12033, 11855, 10676, 10328, 10303, 10310, 10312, 10255, 10257, 10244, 10223, 10172, 10171, 10167, 10326, 10329, 10319, 10193, 10189, 10187, 10256, 10000, 11742, 10678, 12403, 11779, 10333, 10339, 10339, 10324, 10265, 10242, 10245, 10248, 10249, 10232, 10237, 10226, 10214, 10221, 10204, 10205, 10175, 10169, 10337, 11751, 10327, 10164, 10309, 10336, 10186, 12446, 10236, 10331, 10301, 10301, 10307, 10345, 10227, 10683, 10335, 10341, 10342, 10325, 10313, 10315, 10318, 10262, 10264, 10247, 10239, 10222, 10181, 10163, 10321, 10275, 10338, 10190, 10191, 10192, 10188, 10323, 11863, 12315, 10173, 10207]
 # exchange_ids = [10169, 10313]
-# exchange_ids = [10169]
+exchange_ids = [10000]
 universities = get_university_objects(exchange_ids)
 
 for uni in universities:
