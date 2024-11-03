@@ -12,6 +12,7 @@ function App() {
   const handleCurrentUniversity = (universityKey) => {
     const selectedUniversity = UniversityData.universities.find(uni => uni.name === universityKey);
     setCurrentUniversity(selectedUniversity);
+    console.log(`Selected university: ${currentUniversity}`)
   }
 
   return (

@@ -17,13 +17,18 @@ L.Icon.Default.mergeOptions({
 function MainMap({ universities, onSelectUniversity }) {
 
     console.log(universities)
-
+    const bounds = [
+        [-85, -180],
+        [85, 180] 
+      ];
     return (
         <div>
             <MapContainer 
             className="map-container" 
             center={[15.45, 18.73]} 
             zoom={2.3} 
+            maxBounds={bounds}
+            maxBoundsViscosity={0.7} 
             scrollWheelZoom={true}
             style={{ height: "100vh", width: "100%" }}>               
                 <TileLayer
@@ -39,7 +44,9 @@ function MainMap({ universities, onSelectUniversity }) {
                             <Marker 
                             key={index}
                             position={[latitude, longitude]}
-                            onClick={() => onSelectUniversity(university.name)}
+                            eventHandlers={{
+                                click: () => onSelectUniversity(university.name)
+                              }}
                             >
                             <Popup>
                                 <strong>{university.name}</strong>
