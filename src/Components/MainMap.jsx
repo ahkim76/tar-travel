@@ -14,25 +14,46 @@ L.Icon.Default.mergeOptions({
 });
 
 
-function MainMap({ universityName, lat, long }) {
+function MainMap({ universities, onSelectUniversity }) {
+
+    console.log(universities)
+
     return (
         <div>
             <MapContainer 
             className="map-container" 
-            center={[37.5664, 126.9387]} 
-            zoom={13} 
+            center={[15.45, 18.73]} 
+            zoom={2.3} 
             scrollWheelZoom={true}
-            style={{ height: "100vh", width: "100%" }}>
+            style={{ height: "100vh", width: "100%" }}>               
+                <TileLayer
+                    url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/rastertiles/voyager/{z}/{x}/{y}{r}.png"
+                    attribution='&copy; <a href="https://carto.com/attributions">CARTO</a>'
+                />
+
                 
-            <TileLayer
-                url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/rastertiles/voyager/{z}/{x}/{y}{r}.png"
-                attribution='&copy; <a href="https://carto.com/attributions">CARTO</a>'
-            />
-            <Marker position={[lat, long]}>
-                <Popup>
-                {universityName}
-                </Popup>
-            </Marker>
+                {universities.map((university, index) => {
+                    const {latitude, longitude} = university.location.coordinates;
+                    if (latitude && longitude) {
+                        return (
+                            <Marker 
+                            key={index}
+                            position={[latitude, longitude]}
+                            onClick={() => onSelectUniversity(university.name)}
+                            >
+                            <Popup>
+                                <strong>{university.name}</strong>
+                                <p>{university.overview.description}</p>
+                            </Popup>
+                            </Marker>
+                        )   
+                    } else {
+                        console.error(`Invalid coords for ${university.name}`)
+                        return null;
+                    }
+                })}
+
+
             </MapContainer>
         </div>
     )
