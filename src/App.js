@@ -21,12 +21,15 @@ function App() {
         <div className="ui-container">
          <UserInterface
               universityName={currentUniversity ? currentUniversity.name : "Select a University!"}
+              city={currentUniversity && currentUniversity.location ? currentUniversity.location.city : ""}
+              country = {currentUniversity && currentUniversity.location ? currentUniversity.location.country : ""}
               description={currentUniversity ? currentUniversity.overview.description : ""}
               details={currentUniversity ? currentUniversity.overview.details : ""}
+              website={currentUniversity ? currentUniversity.program_website.url : ""}
             /> 
         </div>
         <div className="map-container">
-          currentUniversity ? <MainMap 
+           <MainMap 
               universities={UniversityData.universities}
               onSelectUniversity={handleCurrentUniversity}
           /> 

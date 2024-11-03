@@ -30,6 +30,7 @@ function MainMap({ universities, onSelectUniversity }) {
             maxBounds={bounds}
             maxBoundsViscosity={0.7} 
             scrollWheelZoom={true}
+            maxZoom={18}
             style={{ height: "100vh", width: "100%" }}>               
                 <TileLayer
                     url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/rastertiles/voyager/{z}/{x}/{y}{r}.png"
