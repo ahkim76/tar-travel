@@ -92,6 +92,10 @@ code {
 
 /* OPENING SCREEN */
 
+.opening-menu {
+  display: grid;
+}
+
 .opening-header {
   text-align: center;
   font-size: 4rem;
@@ -102,6 +106,9 @@ code {
 }
 
 .opening-button {
+  background-color: red;
+  margin: 2rem; /* Adds space around the button instead of padding */
+  border-radius: 11px;
   font-size: 2.4rem;
   color: #333;
   font-weight: 600;
@@ -109,20 +116,23 @@ code {
   text-decoration: none;
   display: inline-block;
   overflow: hidden;
+  text-align: center;
+  padding: 1rem 0;
 }
 
 .opening-button::before {
   content: attr(data-text);
   position: absolute;
-  top: 0;
+  top: 50%;
   left: 0;
+  transform: translateY(-50%);
   background: url(./Components/wave.png);
-  background-size: cover;
+  transform: translateY(-50%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   animation: animate 2s linear infinite;
-  transition: 0.5s;
+  transition: 0.1s;
   width: 0;
   white-space: nowrap;
 }

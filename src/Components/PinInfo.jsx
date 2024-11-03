@@ -8,7 +8,7 @@ function PinInfo({ universityName, overview, studentExperience, image }) {
                 {universityName}
             </h2>
             <div className="image-container">
-                <img className="university-image" src={image} alt={`Image of ${universityName}`}/>
+                <img className="university-image" src={image}/>
             </div>
             
             <p className="p-description">
