@@ -7,9 +7,10 @@ import json
 
 
 class University:
-    def __init__(self, identifier, name, location, overview, student_experience):
+    def __init__(self, identifier, name, image_url, location, overview, student_experience):
         self.identifier = identifier
         self.name = name
+        self.image_url = image_url
         self.location = location
         self.overview = overview
         self.student_experience = student_experience
@@ -22,10 +23,9 @@ class University:
     def to_json(self):
         location_json = self.location.to_json()
 
-        result = "{ \"name\": \"" + self.name + "\", \"overview\": \"" + self.overview.replace("\n", "\\n").replace("\t", "") + "\", \"location\": " + location_json + ", \"student_experience\": \"" + self.student_experience.replace("\n", "\\n").replace("\t", "") + "\"},\n"
+        result = "{ \"id\": \"" + str(self.identifier) +  "\", \"name\": \"" + self.name + "\", \"image\": \"" + self.image_url + "\", \"overview\": \"" + self.overview.replace("\n", "\\n").replace("\t", "").replace("\"", "\\\"") + "\", \"location\": " + location_json + ", \"student_experience\": \"" + self.student_experience.replace("\n", "\\n").replace("\t", "").replace("\"", "\\\"") + "\"},\n"
 
         return result
-
 
 
 class Location:
@@ -55,6 +55,8 @@ def get_university_objects(ids):
 
         # get name of the university
         name = soup.find_all('h2')[0]
+
+        image_url = soup.findAll('img')[1].get('src')
 
         # get first table containing overview, location, etc.
         table = soup.findAll('table')
@@ -92,10 +94,24 @@ def get_university_objects(ids):
                     text = text.split("\n")
                     place = text[0].split(", ")
                     city = place[0].strip()
-                    country = place[1].strip()
-                    coordinates = getCoords(city, country)
+                    if len(place) > 1:
+                        country = place[1].strip()
+                    else:
+                        badfile.write(str(i))
+                        badfile.write("\n")
 
-                    location = Location(city, country, text[1], coordinates)
+                        continue
+
+                    coordinates = getCoords(city, country, i)
+
+                    if len(text) > 1:
+                        location = Location(city, country, text[1], coordinates)
+                    else:
+                        badfile.write(str(i))
+                        badfile.write("\n")
+
+                        continue
+
                     location_found = False
 
                 if text == "Student Experience":
@@ -110,7 +126,7 @@ def get_university_objects(ids):
 
             continue
 
-        unis.append(University(str(i), name.text, location, overview, student_experience))
+        unis.append(University(str(i), name.text, image_url, location, overview, student_experience))
         driver.quit()
 
     return unis
@@ -149,7 +165,7 @@ f["city, country"] = f["city_ascii"] + ", " + f["country"]
 
 
 
-def getCoords(city, country):
+def getCoords(city, country, i):
     city = city.lower()
     country = country.lower()
     country = reformat(country)
@@ -157,23 +173,31 @@ def getCoords(city, country):
     df = f[f["city, country"] == cc]
     if len(df) == 0:
         print(city, country, "does not exist!")
-        raise CityDoesNotExistException()
+        badfile.write(str(i))
+        badfile.write("\n")
+
+        return [0, 0]
+        # raise CityDoesNotExistException()
     if len(df) > 1:
         print(city, country, "has multiple cities!")
-        raise MultipleCitiesException()
+        badfile.write(str(i))
+        badfile.write("\n")
+        # raise MultipleCitiesException()
+        return [0, 0]
+
 
     return [float(df["lat"].item()), float(df["lng"].item())]
 
 
 
 
-file = open("jsonfile.txt", "a")
-badfile = open("badids.txt", "a")
+file = open("exchangejson.txt", "a")
+badfile = open("exchangebadids.txt", "a")
 
-# ids = [12534, 12033, 11855, 10676, 10328, 10303, 10310, 10312, 10255, 10257, 10244, 10223, 10172, 10171, 10167, 10326, 10329, 10319, 10193, 10189, 10187, 10256, 10000, 11742, 10678, 12403, 11779, 10333, 10339, 10339, 10324, 10265, 10242, 10245, 10248, 10249, 10232, 10237, 10226, 10214, 10221, 10204, 10205, 10175, 10169, 10337, 11751, 10327, 10164, 10309, 10336, 10186, 12446, 10236, 10331, 10301, 10301, 10307, 10345, 10227, 10683, 10335, 10341, 10342, 10325, 10313, 10315, 10318, 10262, 10264, 10247, 10239, 10222, 10181, 10163, 10321, 10275, 10338, 10190, 10191, 10192, 10188, 10323, 11863, 12315, 10173, 10207]
-# ids = [10169, 10313]
-ids = [10301]
-universities = get_university_objects(ids)
+exchange_ids = [12534, 12033, 11855, 10676, 10328, 10303, 10310, 10312, 10255, 10257, 10244, 10223, 10172, 10171, 10167, 10326, 10329, 10319, 10193, 10189, 10187, 10256, 10000, 11742, 10678, 12403, 11779, 10333, 10339, 10339, 10324, 10265, 10242, 10245, 10248, 10249, 10232, 10237, 10226, 10214, 10221, 10204, 10205, 10175, 10169, 10337, 11751, 10327, 10164, 10309, 10336, 10186, 12446, 10236, 10331, 10301, 10301, 10307, 10345, 10227, 10683, 10335, 10341, 10342, 10325, 10313, 10315, 10318, 10262, 10264, 10247, 10239, 10222, 10181, 10163, 10321, 10275, 10338, 10190, 10191, 10192, 10188, 10323, 11863, 12315, 10173, 10207]
+# exchange_ids = [10169, 10313]
+# exchange_ids = [10169]
+universities = get_university_objects(exchange_ids)
 
 for uni in universities:
     file.write(uni.to_json())
