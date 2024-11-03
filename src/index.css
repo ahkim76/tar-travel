@@ -4,6 +4,7 @@ body {
   font-family: "Poppins", serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
 }
 
 code {
@@ -61,15 +62,16 @@ code {
 
 .p-description {
   color:#333;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   margin: 0;
   font-weight: 500;
   line-height: 1.6;
+  padding-bottom: 1rem;
 }
 
 .p-details {
   padding-top: 1rem;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   font-weight: 500;
   color: #333;
   padding-bottom: 1rem;
