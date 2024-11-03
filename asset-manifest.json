@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/tar-travel/static/css/main.a2575820.css",
+    "main.js": "/tar-travel/static/js/main.dc5d32ea.js",
+    "static/js/453.c55833f4.chunk.js": "/tar-travel/static/js/453.c55833f4.chunk.js",
+    "static/media/unc_image.jpeg": "/tar-travel/static/media/unc_image.d551bc02a026f2236186.jpeg",
+    "index.html": "/tar-travel/index.html",
+    "main.a2575820.css.map": "/tar-travel/static/css/main.a2575820.css.map",
+    "main.dc5d32ea.js.map": "/tar-travel/static/js/main.dc5d32ea.js.map",
+    "453.c55833f4.chunk.js.map": "/tar-travel/static/js/453.c55833f4.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a2575820.css",
+    "static/js/main.dc5d32ea.js"
+  ]
+}
