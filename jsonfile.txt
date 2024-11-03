@@ -1,0 +1,32 @@
+{
+  "universities": [
+    {
+      "name": "McGill University",
+      "overview": "This program is available for exchange and direct enroll.  In-state students will automatically be considered for exchange. This program has an early application deadline for Spring term.\n \nMcGill University is one of Canada's best-known institutions of higher learning and one of Canada’s leading research-intensive universities. The oldest university in Montreal, McGill was founded in 1821. Since that time, McGill has grown from a small college to a large university with two campuses, 11 faculties, some 300 programs of study, and more than 33,000 students. It is now ranked among the top public research universities in the world. \nThe UNC-Chapel Hill exchange with McGill University is particularly attractive for students interested in the humanities, social sciences, francophone (Quebecois) studies, and music.",
+      "location": {
+        "city": "Montreal",
+        "country": "Canada",
+        "description": "Montreal's 3.6 million people are renowned for their international flair and joie de vivre. It is home to the second-largest population of native French speakers in the world, behind Paris. The city has a thriving arts and cultural scene, and it is home to one of the largest student populations on the continent.  It boasts a vibrant nightlife, the old-world charm of historic architecture set in a modern metropolis, and the multilingual, multicultural buzz of one of the world's great French cities.  Montreal has an affordable and efficient public transportation system and features an extensive network of bicycle paths and underground pedestrian walkways.",
+        "coordinates": [
+          45.5089,
+          -73.5617
+        ]
+      },
+      "student_experience": "At McGill University, you will have opportunities to get engage, encourage your development, and support your learning. There are a variety of ways to get involved on campus ranging from student societies and associations to campus advocacy and engaging in local community projects. Check out the Support & Resources for more information on involvement opprotunities."
+    },
+    {
+      "name": "University of Auckland",
+      "overview": "This program is available for exchange and direct enroll.  In-state students will automatically be considered for exchange. \nThe University of Auckland (also known as UoA) was established in 1883, and with over 40,000 undergraduate and graduate students, it is the largest university in New Zealand. It is also consistently ranked the highest universities globally. The University is made up of eight faculties spread over six campuses, with the City campus being the largest and where study abroad students from UNC will spend most of their time. A key difference to note about the New Zealand academic system is that Semester 1 runs from February to June & Semester 2 runs from July to November.",
+      "location": {
+        "city": "Auckland",
+        "country": "New Zealand",
+        "description": "Auckland is located on the North Island of New Zealand.  With a population over one million, it is the largest and most populous urban area in the country; and with most major international corporations having an Auckland office, it is considered the economic capital of New Zealand. What’s more, Auckland consistently ranks high amongst the world’s most livable cities.",
+        "coordinates": [
+          -36.8406,
+          174.74
+        ]
+      },
+      "student_experience": "Even before orientation starts at UoA, the Waipapa Noho Marae program gives you the opportunity to spend a night at the center of Māori life at the University, the Waipapa Marae, learn more about the indigenous Māori people and connect with your fellow exchange students. This night of cultural immersion will include a pōwhiri (welcoming ceremony), learning some phrases in te reo Māori (Māori language), singing waiata (songs), and performing poi and haka (performing arts)."
+    }
+  ]
+}
