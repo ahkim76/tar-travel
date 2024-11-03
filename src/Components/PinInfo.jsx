@@ -1,5 +1,5 @@
 import '../index.css'
-function PinInfo({ universityName, overview, studentExperience }) {
+function PinInfo({ universityName, overview, studentExperience, image }) {
     return (
         
         <div className="all-text">
@@ -11,8 +11,8 @@ function PinInfo({ universityName, overview, studentExperience }) {
             </p>
             <p className="p-details">
                 {studentExperience}
-                
             </p>
+            <img src={image} alt={`Image of ${universityName}`}/>
         </div>
         
     );

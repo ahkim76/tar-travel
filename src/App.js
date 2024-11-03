@@ -3,7 +3,7 @@ import './App.css';
 import MainMap from './Components/MainMap.jsx'
 import UserInterface from './Components/UserInterface.jsx';
 import { useState } from 'react';
-import UniversityData from "./jsonfile.json";
+import UniversityData from "./exchangejson.json";
 
 
 function App() {
@@ -24,6 +24,7 @@ function App() {
               city={currentUniversity ? currentUniversity.location.city : ""}
               country={currentUniversity ? currentUniversity.location.country : ""}
               overview={currentUniversity ? currentUniversity.overview : ""}
+              image = {currentUniversity ? currentUniversity.image : ""}
               studentExperience={currentUniversity ? currentUniversity.student_experience : ""}
             /> 
         </div>

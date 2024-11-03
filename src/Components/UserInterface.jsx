@@ -1,6 +1,7 @@
 import '../index.css'
 import PinInfo from "./PinInfo"
-function UserInterface({ universityName, city, country, overview, studentExperience }) {
+function UserInterface({ universityName, city, country, overview, studentExperience, image }) {
+    console.log(image)
     return (
         <>
         <h1 className='header'>
@@ -9,6 +10,7 @@ function UserInterface({ universityName, city, country, overview, studentExperie
         <PinInfo universityName={universityName} 
                 overview={overview} 
                 studentExperience={studentExperience}
+                image={image}
                 />
         </>
     )
