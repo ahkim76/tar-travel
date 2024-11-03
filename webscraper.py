@@ -19,10 +19,13 @@ class University:
         return self.name + " at " + self.location.city + ", " + self.location.country + " with ID " + str(self.identifier)
     
 
-class Overview:
-    def __init__(self, description, details):
-        self.description = description
-        self.details = details
+    def to_json(self):
+        location_json = self.location.to_json()
+
+        result = "{ \"name\": \"" + self.name + "\", \"overview\": \"" + self.overview.replace("\n", "\\n").replace("\t", "") + "\", \"location\": " + location_json + ", \"student_experience\": \"" + self.student_experience.replace("\n", "\\n").replace("\t", "") + "\"},\n"
+
+        return result
+
 
 
 class Location:
@@ -32,6 +35,9 @@ class Location:
         self.description = description
         self.coordinates = coordinates
 
+    
+    def to_json(self):
+        return json.dumps(self.__dict__)
 
 
 def get_university_objects(ids):
@@ -46,22 +52,28 @@ def get_university_objects(ids):
         time.sleep(6)
 
         soup = BeautifulSoup(driver.page_source, 'html.parser')
-        f = open("University" + str(i) + ".txt", "a")
 
         # get name of the university
         name = soup.find_all('h2')[0]
 
         # get first table containing overview, location, etc.
-        table = soup.find_all('table')[0]
+        table = soup.findAll('table')
+        if len(table) == 0:
+            badfile.write(str(i))
+            badfile.write("\n")
+
+            continue
+
+        table = table[0]
         rows = table.find_all('tr')
 
         overview_found = False
         location_found = False
         experience_found = False
 
-        overview = None
+        overview = ""
         location = None
-        student_experience = None
+        student_experience = ""
 
         for row in rows:
             cells = row.find_all('td')
@@ -71,8 +83,7 @@ def get_university_objects(ids):
                 if text == "Overview":
                     overview_found = True
                 elif overview_found and text != "":
-                    text = text.split("\n")
-                    overview = Overview(text[0], text[1])
+                    overview = text
                     overview_found = False
 
                 if text == "Location":
@@ -80,8 +91,8 @@ def get_university_objects(ids):
                 elif location_found and text != "":
                     text = text.split("\n")
                     place = text[0].split(", ")
-                    city = place[0]
-                    country = place[1]
+                    city = place[0].strip()
+                    country = place[1].strip()
                     coordinates = getCoords(city, country)
 
                     location = Location(city, country, text[1], coordinates)
@@ -93,21 +104,33 @@ def get_university_objects(ids):
                     student_experience = text
                     experience_found = False
                 
-                    
-        f.close()
-        unis.append(University(str(i), name.text, location, overview.description, student_experience))
+        if overview == "" or location == None or student_experience == "":
+            badfile.write(str(i))
+            badfile.write("\n")
+
+            continue
+
+        unis.append(University(str(i), name.text, location, overview, student_experience))
         driver.quit()
 
     return unis
 
 
-
 def reformat(oldName):
+    if oldName == "england" or oldName == "wales" or oldName == "scotland" or oldName == "northern ireland":
+        return "united kingdom"
+
     splt = oldName.split(", ")
     if len(splt) > 1:
         return splt[1] + " " + splt[0]
     else:
         return splt[0]
+    
+def lower(name):
+    try:
+        return name.lower()
+    except:
+        return name
 
 class CityDoesNotExistException(Exception):
     pass
@@ -117,28 +140,42 @@ class MultipleCitiesException(Exception):
 
 
 
+
 f = pd.read_csv("worldcities.csv").filter(["city_ascii", "lat", "lng", "country"])
+f["city_ascii"] = f["city_ascii"].apply(lower)
+f["country"] = f["country"].apply(lower)
 f["country"] = f["country"].apply(reformat)
 f["city, country"] = f["city_ascii"] + ", " + f["country"]
 
 
+
 def getCoords(city, country):
-    city = city.capitalize()
-    country = country.capitalize()
+    city = city.lower()
+    country = country.lower()
+    country = reformat(country)
     cc = city + ", " + country
     df = f[f["city, country"] == cc]
     if len(df) == 0:
+        print(city, country, "does not exist!")
         raise CityDoesNotExistException()
     if len(df) > 1:
+        print(city, country, "has multiple cities!")
         raise MultipleCitiesException()
-    print(df)
+
     return [float(df["lat"].item()), float(df["lng"].item())]
 
 
 
 
+file = open("jsonfile.txt", "a")
+badfile = open("badids.txt", "a")
+
 # ids = [12534, 12033, 11855, 10676, 10328, 10303, 10310, 10312, 10255, 10257, 10244, 10223, 10172, 10171, 10167, 10326, 10329, 10319, 10193, 10189, 10187, 10256, 10000, 11742, 10678, 12403, 11779, 10333, 10339, 10339, 10324, 10265, 10242, 10245, 10248, 10249, 10232, 10237, 10226, 10214, 10221, 10204, 10205, 10175, 10169, 10337, 11751, 10327, 10164, 10309, 10336, 10186, 12446, 10236, 10331, 10301, 10301, 10307, 10345, 10227, 10683, 10335, 10341, 10342, 10325, 10313, 10315, 10318, 10262, 10264, 10247, 10239, 10222, 10181, 10163, 10321, 10275, 10338, 10190, 10191, 10192, 10188, 10323, 11863, 12315, 10173, 10207]
-ids = [10169]
+# ids = [10169, 10313]
+ids = [10301]
 universities = get_university_objects(ids)
+
 for uni in universities:
-    print(uni.location.coordinates[0], uni.location.coordinates[1])
+    file.write(uni.to_json())
+
+file.close()
