@@ -2,6 +2,8 @@ import { useState } from 'react';
 import ExchangeData from "../exchangejson.json";
 import CheapData from "../cheapjson.json";
 import SummerData from "../summerjson.json"
+import InternshipsData from "../internshipsjson.json";
+import DirectData from "../directjson.json";
 import "../index.css";
 function Dropdown({ setDataset, setHeader }) {
     const [selectedValue, setSelectedValue] = useState('Exchange'); 
@@ -22,14 +24,14 @@ function Dropdown({ setDataset, setHeader }) {
              setDataset(SummerData);
             setHeader("Summer")
             break;
-          case 'Direct Enroll':
-            // Replace with your relevant dataset
-            // setDataset(DirectEnrollData);
+          case 'Direct':
+            
+            setDataset(DirectData);
             setHeader("Direct")
             break;
-          case 'Internship':
-            // Replace with your relevant dataset
-            // setDataset(InternshipData);
+          case 'Internships':
+            
+            setDataset(InternshipsData);
             setHeader("Internship")
             break;
           default:
@@ -42,8 +44,8 @@ function Dropdown({ setDataset, setHeader }) {
         <option value="Exchange">Exchange</option>
         <option value="Less than $15k">Less than $15k</option>
         <option value="Summer">Summer</option>
-        <option value="Option 3">Direct Enroll</option>
-        <option value="Option 3">Internship</option>
+        <option value="Direct">Direct Enroll</option>
+        <option value="Internships">Internships</option>
     </select>
     );
 
