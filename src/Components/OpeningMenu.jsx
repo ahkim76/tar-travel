@@ -1,4 +1,5 @@
 import '../index.css'
+import openingImg from "./tarTravelOpeningImg.jpeg"
 import { BsArrowRight } from "react-icons/bs";
 function OpeningMenu({ closeMenu }) {
     return (
@@ -10,8 +11,8 @@ function OpeningMenu({ closeMenu }) {
                     <BsArrowRight className="arrow-icon"/>
                     <a href="#" onClick={closeMenu} className="opening-button" data-text="Click on me to Enter!">Click on me to Enter!</a>
                 </div>
-                
             </div>  
+            <img className="opening-image" src={openingImg} alt="Old Well Image"/>
             
         </>
         
