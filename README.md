@@ -2,6 +2,8 @@
 
 Over 2,100 Tar Heels study abroad every year. Information on HeelsAbroad is hard to find, so we created a website that allows UNC students to find their dream abroad destination. 
 
+![alt text](https://github.com/ahkim76/tar-travel/blob/main/github/TarTravel.png)
+
 ## Usage
 **Clone the git repository**
 
