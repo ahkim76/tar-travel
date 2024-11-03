@@ -3,7 +3,7 @@ import './App.css';
 import MainMap from './Components/MainMap.jsx'
 import UserInterface from './Components/UserInterface.jsx';
 import { useState } from 'react';
-import UniversityData from "./dummy.json";
+import UniversityData from "./jsonfile.json";
 
 
 function App() {
@@ -21,11 +21,10 @@ function App() {
         <div className="ui-container">
          <UserInterface
               universityName={currentUniversity ? currentUniversity.name : "Select a University!"}
-              city={currentUniversity && currentUniversity.location ? currentUniversity.location.city : ""}
-              country = {currentUniversity && currentUniversity.location ? currentUniversity.location.country : ""}
-              description={currentUniversity ? currentUniversity.overview.description : ""}
-              details={currentUniversity ? currentUniversity.overview.details : ""}
-              website={currentUniversity ? currentUniversity.program_website.url : ""}
+              city={currentUniversity ? currentUniversity.location.city : ""}
+              country={currentUniversity ? currentUniversity.location.country : ""}
+              overview={currentUniversity ? currentUniversity.overview : ""}
+              studentExperience={currentUniversity ? currentUniversity.student_experience : ""}
             /> 
         </div>
         <div className="map-container">

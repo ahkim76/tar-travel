@@ -18,8 +18,8 @@ function MainMap({ universities, onSelectUniversity }) {
 
     console.log(universities)
     const bounds = [
-        [-85, -180],
-        [85, 180] 
+        [-85, -190],
+        [85, 190] 
       ];
     return (
         <div>
@@ -39,7 +39,7 @@ function MainMap({ universities, onSelectUniversity }) {
 
                 
                 {universities.map((university, index) => {
-                    const {latitude, longitude} = university.location.coordinates;
+                    const [latitude, longitude] = university.location.coordinates;
                     if (latitude && longitude) {
                         return (
                             <Marker 
@@ -51,7 +51,7 @@ function MainMap({ universities, onSelectUniversity }) {
                             >
                             <Popup>
                                 <strong>{university.name}</strong>
-                                <p>{university.overview.description}</p>
+                                <p>{`${university.location.city}, ${university.location.country}`}</p>
                             </Popup>
                             </Marker>
                         )   

@@ -1,6 +1,5 @@
 import '../index.css'
-function PinInfo({ universityName, description, details, city, country, website }) {
-    console.log(city)
+function PinInfo({ universityName, overview, studentExperience }) {
     return (
         
         <div className="all-text">
@@ -8,13 +7,12 @@ function PinInfo({ universityName, description, details, city, country, website 
                 {universityName}
             </h2>
             <p className="p-description">
-                {description}
+                {overview}
             </p>
             <p className="p-details">
-                {details}
+                {studentExperience}
                 
             </p>
-            <p>{city}</p>
         </div>
         
     );

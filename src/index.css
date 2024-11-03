@@ -1,9 +1,7 @@
 /* USE THIS FILE FOR STYLING COMPONENTS! */
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "Poppins", serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -54,21 +52,23 @@ code {
 }
 
 .p-header {
-  color: black;
+  color: #333;
+  font-weight: 800;
   font-size: 3rem;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-align: center;
 }
 
 .p-description {
-  color:black;
-  font-size: 2rem;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color:#333;
+  font-size: 1.2rem;
   margin: 0;
+  line-height: 1.6;
 }
 
 .p-details {
-  color: black;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  padding-top: 1rem;
+  font-size: 1.2rem;
+  color: #333;
 }
 
 .leaflet-popup-content {
