@@ -31,15 +31,15 @@ body {
 
 .main {
   display: flex;
-  height: 80vh;
+  height: 85vh;
   overflow: hidden;
-  padding: 20px;
+  
 }
 
 .wrapper {
   background: white;
-  max-width: 1250px;
-  height: 90vh;
+  width: 97.5%;
+  height: 100%;
   margin: 20px auto;
   padding: 10px;
   border-radius: 10px;
