@@ -1,18 +1,22 @@
-test commit from Owen!!!
+# Tar Travel
 
-To run in VSCode, in terminal write
-npm install
-^ this should install create-react-app
+Over 2,100 Tar Heels study abroad every year. Information on HeelsAbroad is hard to find, so we created a website that allows UNC students to find their dream abroad destination. 
 
-Then write
-npm install react react-dom leaflet
+## Usage
+**Clone the git repository**
 
-Then write 
-npm install react-leaflet
+`git clone https://github.com/ahkim76/tar-travel.git`
 
-Might also need
-npm install react-icons
+**Install the required dependancies**
 
-After Leaflet is installed, write
-npm run start
-and there should be a link
+`npm install`
+
+`npm install react react-dom leaflet`
+
+`npm install react-leaflet`
+
+`npm install react-icons`
+
+**Run Website**
+
+`npm run start`
