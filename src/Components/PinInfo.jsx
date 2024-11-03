@@ -1,6 +1,7 @@
 import '../index.css'
+import uncImage from "./unc_image.jpeg"
 function PinInfo({ universityName, overview, studentExperience, image }) {
-    console.log("test");
+    console.log(overview);
     return (
         
         <div className="all-text">
@@ -8,11 +9,11 @@ function PinInfo({ universityName, overview, studentExperience, image }) {
                 {universityName}
             </h2>
             <div className="image-container">
-                <img className="university-image" src={image}/>
+                <img className="university-image" src={image ? image :  uncImage }/>
             </div>
             
-            <p className="p-description">
-                {overview}
+            <p className="p-description" >
+                {overview ? overview : "UNC–Chapel Hill’s study abroad programs are high-quality, credit-bearing academic experiences available at hundreds of locations worldwide to students in all academic programs, majors, and minors. Carolina strives to ensure that study abroad programs are accessible, affordable, and safe. A wide range of study abroad options meet the academic needs, financial realities, schedules, and language abilities of Carolina students. Programs include undergraduate student exchanges, faculty-led, direct enroll, and short-term immersion programs during the summer, semester, and academic year. Financial aid can be used toward study abroad program costs. Over $1 million in study abroad scholarships are rewarded annually."}
             </p>
             
             <p className="p-details">

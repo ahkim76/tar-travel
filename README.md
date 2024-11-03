@@ -10,6 +10,9 @@ npm install react react-dom leaflet
 Then write 
 npm install react-leaflet
 
+Might also need
+npm install react-icons
+
 After Leaflet is installed, write
-npm run dev
+npm run start
 and there should be a link
