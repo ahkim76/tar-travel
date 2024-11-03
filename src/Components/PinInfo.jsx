@@ -1,5 +1,6 @@
 import '../index.css'
 function PinInfo({ universityName, overview, studentExperience, image }) {
+    console.log("test");
     return (
         
         <div className="all-text">
