@@ -1,6 +1,6 @@
 import '../index.css'
 import PinInfo from "./PinInfo"
-function UserInterface({ universityName, city, country, overview, studentExperience, image }) {
+function UserInterface({ universityName, overview, studentExperience, image }) {
     console.log(image)
     return (
         <>

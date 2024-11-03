@@ -33,6 +33,7 @@ code {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   background-color: #13294B;
   text-align: center;
+  font-size: 2.5rem;
   padding: 2.4rem;
   width: 100%;
   box-sizing: border-box;
@@ -69,11 +70,73 @@ code {
   padding-top: 1rem;
   font-size: 1.2rem;
   color: #333;
+  padding-bottom: 1rem;
 }
 
 .leaflet-popup-content {
   font-size: 1.2rem !important; /* Adjust this value as needed */
   font-family: 'Arial', sans-serif; /* Optional: change the font family */
 
+}
+
+
+.university-image {
+  margin-top: 1rem;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+
+/* OPENING SCREEN */
+
+.opening-header {
+  text-align: center;
+  font-size: 4rem;
+}
+
+.opening-paragraph {
+  font-size: 1.6rem;
+}
+
+.opening-button {
+  font-size: 2.4rem;
+  color: #333;
+  font-weight: 600;
+  position: relative;
+  text-decoration: none;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.opening-button::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url(./Components/wave.png);
+  background-size: cover;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: animate 2s linear infinite;
+  transition: 0.5s;
+  width: 0;
+  white-space: nowrap;
+}
+
+.opening-button:hover:before {
+  width: 100%;
+}
+
+@keyframes animate {
+  0% {
+    background-position: 0px;
+  }
+  100% {
+    background-position: 200px;
+  }
 }
 

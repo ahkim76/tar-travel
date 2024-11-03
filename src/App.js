@@ -4,10 +4,12 @@ import MainMap from './Components/MainMap.jsx'
 import UserInterface from './Components/UserInterface.jsx';
 import { useState } from 'react';
 import UniversityData from "./exchangejson.json";
+import OpeningMenu from './Components/OpeningMenu.jsx';
 
 
 function App() {
   const [currentUniversity, setCurrentUniversity] = useState(null);
+  const [onOpening, setOnOpening] = useState(true);
 
   const handleCurrentUniversity = (universityKey) => {
     const selectedUniversity = UniversityData.universities.find(uni => uni.name === universityKey);
@@ -16,26 +18,31 @@ function App() {
   }
 
   return (
+    
     <div className="wrapper">
-      <div className="main">
-        <div className="ui-container">
-         <UserInterface
+      {onOpening ? (
+        <OpeningMenu closeMenu={() => setOnOpening(false)} />
+      ) : (
+        <div className="main">
+          <div className="ui-container">
+            <UserInterface
               universityName={currentUniversity ? currentUniversity.name : "Select a University!"}
               city={currentUniversity ? currentUniversity.location.city : ""}
               country={currentUniversity ? currentUniversity.location.country : ""}
               overview={currentUniversity ? currentUniversity.overview : ""}
-              image = {currentUniversity ? currentUniversity.image : ""}
+              image={currentUniversity ? currentUniversity.image : ""}
               studentExperience={currentUniversity ? currentUniversity.student_experience : ""}
-            /> 
-        </div>
-        <div className="map-container">
-           <MainMap 
+            />
+          </div>
+          <div className="map-container">
+            <MainMap
               universities={UniversityData.universities}
               onSelectUniversity={handleCurrentUniversity}
-          /> 
+            />
+          </div>
         </div>
-      </div>
-      </div>
+      )}
+    </div>
   );
 }
 

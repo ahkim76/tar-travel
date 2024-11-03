@@ -55,7 +55,7 @@ body {
 }
 
 .ui-container {
-  flex-basis: 35%; /* Adjust the width as needed */
+  flex-basis: 37.5%; /* Adjust the width as needed */
   display: flex;
   flex-direction: column;
   background-color: red;
