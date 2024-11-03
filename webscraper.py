@@ -23,7 +23,7 @@ class University:
     def to_json(self):
         location_json = self.location.to_json()
 
-        result = "{ \"id\": \"" + str(self.identifier) +  "\", \"name\": \"" + self.name + "\", \"image\": \"" + self.image_url + "\", \"overview\": \"" + self.overview.replace("\n", "\\n").replace("\t", "") + "\", \"location\": " + location_json + ", \"student_experience\": \"" + self.student_experience.replace("\n", "\\n").replace("\t", "") + "\"},\n"
+        result = "{ \"id\": \"" + str(self.identifier) +  "\", \"name\": \"" + self.name + "\", \"image\": \"" + self.image_url + "\", \"overview\": \"" + self.overview.replace("\n", "\\n").replace("\t", "").replace("\"", "\\\"") + "\", \"location\": " + location_json + ", \"student_experience\": \"" + self.student_experience.replace("\n", "\\n").replace("\t", "").replace("\"", "\\\"") + "\"},\n"
 
         return result
 
