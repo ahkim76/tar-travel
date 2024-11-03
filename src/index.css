@@ -61,14 +61,16 @@ code {
 
 .p-description {
   color:#333;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   margin: 0;
+  font-weight: 500;
   line-height: 1.6;
 }
 
 .p-details {
   padding-top: 1rem;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
+  font-weight: 500;
   color: #333;
   padding-bottom: 1rem;
 }
@@ -93,20 +95,31 @@ code {
 /* OPENING SCREEN */
 
 .opening-menu {
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem; /* Added padding for spacing */
+  border-radius: 15px;
+  max-width: 80%; /* Limits width */
+  margin: 2rem auto; /* Centers the element */
 }
 
 .opening-header {
   text-align: center;
   font-size: 4rem;
+  color: #13294B; /* Matches the color scheme */
+  margin-bottom: 1rem;
 }
 
 .opening-paragraph {
   font-size: 1.6rem;
+  color: #333;
+  margin-bottom: 2rem; /* Adds spacing below */
+  text-align: center;
 }
 
 .opening-button {
-  background-color: red;
   margin: 2rem; /* Adds space around the button instead of padding */
   border-radius: 11px;
   font-size: 2.4rem;
@@ -127,14 +140,14 @@ code {
   left: 0;
   transform: translateY(-50%);
   background: url(./Components/wave.png);
-  transform: translateY(-50%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   animation: animate 2s linear infinite;
-  transition: 0.1s;
+  transition: 0.5s;
   width: 0;
   white-space: nowrap;
+  background-position: center;
 }
 
 .opening-button:hover:before {
@@ -150,3 +163,14 @@ code {
   }
 }
 
+
+.button-container {
+  display: flex;
+  align-items: center; 
+  gap: 0.1rem;
+}
+
+.arrow-icon {
+  font-size: 2.4rem; 
+  color: #333;
+}
