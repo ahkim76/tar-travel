@@ -1,6 +1,6 @@
 import '../index.css'
 import uncImage from "./unc_image.jpeg"
-function PinInfo({ universityName, overview, studentExperience, image }) {
+function PinInfo({ universityName, overview, studentExperience, image, id }) {
     console.log(overview);
     return (
         
@@ -19,6 +19,9 @@ function PinInfo({ universityName, overview, studentExperience, image }) {
             <p className="p-details">
                 {studentExperience}
             </p>
+
+            <a className="university-link" href={`https://heelsabroad.unc.edu/_portal/tds-program-brochure?programid=${id ? id : ""}`} target="_blank" >
+            Click here for more information!</a>
             
         </div>
         
